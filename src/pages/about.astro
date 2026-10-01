@@ -1,12 +1,14 @@
 ---
 import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
 import Layout from '../layouts/BlogPost.astro';
+import { SITE_TITLE } from '../consts';
 ---
 
 <Layout
-	title=""
+	title={SITE_TITLE}
 	description="Avid reader, nature lover and tech enthusiast"
 	heroImage={AboutHeroImage}
+	showTitle={false}
 >
 	<p>Avid reader, nature lover and tech enthusiast.</p>
 </Layout>
