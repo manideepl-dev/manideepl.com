@@ -1,5 +1,5 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import AboutHeroImage from '../assets/Nene.png';
 import Layout from '../layouts/BlogPost.astro';
 import { SITE_TITLE } from '../consts';
 ---
@@ -10,5 +10,11 @@ import { SITE_TITLE } from '../consts';
 	heroImage={AboutHeroImage}
 	showTitle={false}
 >
-	<p>Avid reader, nature lover and tech enthusiast.</p>
+	<p class="about-copy">Avid reader, nature lover and tech enthusiast.</p>
 </Layout>
+
+<style>
+	.about-copy {
+		text-align: center;
+	}
+</style>
