@@ -8,9 +8,10 @@ import Header from '../components/Header.astro';
 
 type Props = CollectionEntry<'blog'>['data'] & {
 	showTitle?: boolean;
+	portraitImage?: boolean;
 };
 
-const { title, description, pubDate, updatedDate, heroImage, showTitle = true } = Astro.props;
+const { title, description, pubDate, updatedDate, heroImage, showTitle = true, portraitImage = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -26,13 +27,20 @@ const { title, description, pubDate, updatedDate, heroImage, showTitle = true } 
 				display: flex;
 				justify-content: center;
 				width: 100%;
-				margin-bottom: 1.5rem;
 			}
 			.hero-image img {
 				display: block;
 				margin: 0 auto;
-				max-width: min(260px, 60vw);
+				max-width: min(760px, 100%);
 				height: auto;
+				border-radius: 12px;
+				box-shadow: var(--box-shadow);
+			}
+			.hero-image--portrait {
+				margin-bottom: 1.5rem;
+			}
+			.hero-image--portrait img {
+				max-width: min(260px, 60vw);
 				border-radius: 999px;
 				box-shadow: none;
 				opacity: 0.96;
@@ -67,7 +75,7 @@ const { title, description, pubDate, updatedDate, heroImage, showTitle = true } 
 		<Header />
 		<main>
 			<article>
-				<div class="hero-image">
+				<div class:list={['hero-image', { 'hero-image--portrait': portraitImage }]}>
 					{heroImage && (
 						<Image
 							width={heroImage.width}
